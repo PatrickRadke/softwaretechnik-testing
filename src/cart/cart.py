@@ -1,0 +1,1 @@
+"""Warenkorb für Aufgabe 2. Entwickelt im TDD"""
