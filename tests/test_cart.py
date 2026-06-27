@@ -1,5 +1,5 @@
 import pytest
-from cart.cart import ShoppingCart
+from cart.cart import ShoppingCart, CartError
 
 @pytest.fixture
 def cart():

@@ -1,5 +1,8 @@
 """Warenkorb für Aufgabe 2. Entwickelt im TDD"""
 
+class CartError(Exception):
+    pass
+
 class CartItem:
     def __init__(self, name: str, price: float, quantity: int) -> None:
         self.name = name
@@ -11,6 +14,8 @@ class ShoppingCart:
         self.items = {}
 
     def add_item(self, name: str, price: float, quantity: int = 1) -> None:
+        if quantity <= 0:
+            raise CartError("Mengenangabe ungültig")
         if name in self.items:
             self.items[name].quantity += quantity
         else:
