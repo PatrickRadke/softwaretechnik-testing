@@ -37,3 +37,12 @@ def test_total_multiple_items(cart):
     cart.add_item('apple', 0.50, 3)
     cart.add_item('bread', 2.00, 1)
     assert cart.total() == 3.50
+
+def test_remove_item(cart):
+    cart.add_item('apple', 0.50)
+    cart.remove_item('apple')
+    assert cart.item_count() == 0
+
+def test_remove_missing_item_raises(cart):
+    with pytest.raises(ItemNotFoundError):
+        cart.remove_item('apple')
