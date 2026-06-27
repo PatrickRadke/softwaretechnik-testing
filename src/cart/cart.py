@@ -14,7 +14,7 @@ class ShoppingCart:
         self.items = {}
 
     def add_item(self, name: str, price: float, quantity: int = 1) -> None:
-        if quantity <= 0:
+        if quantity <= 0 or price <= 0:
             raise CartError("Mengenangabe ungültig")
         if name in self.items:
             self.items[name].quantity += quantity
