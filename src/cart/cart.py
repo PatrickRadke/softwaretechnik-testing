@@ -29,3 +29,9 @@ class ShoppingCart:
         for item in self.items.values():
             total += item.quantity
         return total
+
+    def total(self):
+        total = 0
+        for item in self.items.values():
+            total += item.line_total()
+        return total
