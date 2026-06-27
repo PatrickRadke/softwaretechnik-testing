@@ -47,3 +47,14 @@ def test_remove_item(cart):
 def test_remove_missing_item_raises(cart):
     with pytest.raises(ItemNotFoundError):
         cart.remove_item('apple')
+
+def test_apply_discount(cart):
+    cart.add_item('bread', 2.00, 5)
+    assert cart.apply_discount(10) == 9.00
+
+def test_apply_discount_too_high_raises(cart):
+    cart.add_item('bread', 2.00, 5)
+    with pytest.raises(CartError):
+        cart.apply_discount(150)
+
+
