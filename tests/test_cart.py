@@ -29,3 +29,11 @@ def test_price_is_zero_raises(cart):
 def test_price_is_negative_raises(cart):
     with pytest.raises(CartError):
         cart.add_item('apple', -0.50, 2)
+
+def test_total_empty_cart(cart):
+    assert cart.total() == 0
+
+def test_total_multiple_items(cart):
+    cart.add_item('apple', 0.50, 3)
+    cart.add_item('bread', 2.00, 1)
+    assert cart.total() == 3.50
