@@ -9,6 +9,9 @@ class CartItem:
         self.price = price
         self.quantity = quantity
 
+    def line_total(self) -> float:
+        return self.price * self.quantity
+
 class ShoppingCart:
     def __init__(self):
         self.items = {}
