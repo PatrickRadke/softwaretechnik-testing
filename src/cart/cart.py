@@ -1,5 +1,8 @@
 """Warenkorb für Aufgabe 2. Entwickelt im TDD"""
 
+class ItemNotFoundError(Exception):
+    pass
+
 class CartError(Exception):
     pass
 
@@ -35,3 +38,8 @@ class ShoppingCart:
         for item in self.items.values():
             total += item.line_total()
         return total
+
+    def remove_item(self, name: str) -> None:
+        if name not in self.items:
+            raise ItemNotFoundError()
+        del self.items[name]
