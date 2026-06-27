@@ -43,3 +43,8 @@ class ShoppingCart:
         if name not in self.items:
             raise ItemNotFoundError()
         del self.items[name]
+
+    def apply_discount(self, percent: float) -> float:
+        if percent <= 0 or percent > 100:
+            raise CartError("Rabatt muss zwischen 0 und 100 liegen")
+        return self.total() * (1 - percent / 100)
