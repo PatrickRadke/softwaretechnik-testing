@@ -20,6 +20,12 @@ def test_add_item_zero_quantity_raises(cart):
 
 def test_add_item_negative_quantity_raises(cart):
     with pytest.raises(CartError):
-        cart.add_item('apple', 0.5, -5)
+        cart.add_item('apple', 0.50, -5)
 
+def test_price_is_zero_raises(cart):
+    with pytest.raises(CartError):
+        cart.add_item('apple', 0.00, 2)
 
+def test_price_is_negative_raises(cart):
+    with pytest.raises(CartError):
+        cart.add_item('apple', -0.50, 2)
